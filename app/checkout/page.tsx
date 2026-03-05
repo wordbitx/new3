@@ -79,6 +79,13 @@ if (!isLoaded) {
     setStep("confirmation");
   };
 
+  if (!isLoaded) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      Loading cart...
+    </div>
+  );
+}
   if (items.length === 0 && step === "summary") {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">

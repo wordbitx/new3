@@ -8,15 +8,6 @@ export interface CartItem {
   quantity: number;
 }
 
-// interface CartContextType {
-//   items: CartItem[];
-//   addItem: (product: Product) => void;
-//   removeItem: (productId: string) => void;
-//   updateQuantity: (productId: string, quantity: number) => void;
-//   clearCart: () => void;
-//   total: number;
-//   itemCount: number;
-// }
 interface CartContextType {
   items: CartItem[];
   addItem: (product: Product) => void;
@@ -96,7 +87,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <CartContext.Provider
+   <CartContext.Provider
   value={{
     items,
     addItem,
