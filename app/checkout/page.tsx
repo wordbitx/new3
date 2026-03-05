@@ -27,7 +27,14 @@ type CheckoutStep =
   | "confirmation";
 
 function CheckoutContent() {
-  const { items, total, clearCart } = useCart();
+const { items, total, clearCart, isLoaded } = useCart();
+if (!isLoaded) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      Loading cart...
+    </div>
+  );
+}
   const [step, setStep] = useState<CheckoutStep>("summary");
   const [orderNumber, setOrderNumber] = useState("");
   const [orderTotal, setOrderTotal] = useState(0);
